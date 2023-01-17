@@ -13,7 +13,7 @@ function MapPage() {
     width: "100%",
     height: "100%",
     latitude: 40.87,
-    longitude: -73.33,
+    longitude: -98.33,
     zoom: 2.5,
     maxZoom: 14,
     minZoom: 2,
@@ -22,11 +22,11 @@ function MapPage() {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [locationsToMark, setLocationsToMark] = useState([{
     name: "New York",
-    coordinates: [75.33, -45.38],
+    coordinates: [-73.33, 40.87] // [long , lat]
   },
   {
-    name: "Second Location",
-    coordinates: [45.38, -75.33],
+    name: "Denver",
+    coordinates: [-105.33, 39.87],
   }],);
 
 
@@ -66,13 +66,14 @@ function MapPage() {
           <button
             onClick={(e) => {
               e.preventDefault();
-              setSelectedMarker(locToMark);
+            setSelectedMarker(locToMark);
+            console.log(locToMark);
             }}
           >
             {locToMark.name}
           </button>
         </Marker>
-        {console.log("printing locToMark iinside of marker map",locToMark)}
+        {console.log("printing locToMark inside of marker map",locToMark)}
         </div>
       ))
       ): null}
@@ -80,14 +81,17 @@ function MapPage() {
 
       {selectedMarker ? (
         <Popup
+        latitude={selectedMarker.coordinates[1]}
+            longitude={selectedMarker.coordinates[0]}
           onClose={() => {
             setSelectedMarker(null);
           }}
         >
           <PopUpInfo
             selectedTest={selectedTest}
-            selectedMarker={selectedMarker}
+           selectedMarker={selectedMarker}
           />
+          Hello
         </Popup>
       ) : null}
     </ReactMapGL>
