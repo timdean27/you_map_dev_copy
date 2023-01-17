@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 
 const PostForms = ({locationsToMark , setLocationsToMark}) => {
-
+// [long , lat]
     const handleChange = (e) => {
+
+            console.log("e.target.name",e.target.id)
+            console.log("e.target.value",e.target.value)
+
+    }
+    const handleSubmit =() => {
         setLocationsToMark({...locationsToMark,
             
-                [e.target.id]: e.target.value,
-                // "coordinates":[latitude,longitude]
-            
-        
         })
     }
-    const handleSubmit =() => {}
 
   return (
     <div >

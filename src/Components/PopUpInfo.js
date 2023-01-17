@@ -34,7 +34,7 @@ const PopUpInfo = ({selectedTest, selectedMarker}) => {
   return (
     <div>
     <button onClick={() => openModel()}>
-        PopUpButton {selectedMarker.name}
+        PopUpButton
     </button>
     
     </div>
