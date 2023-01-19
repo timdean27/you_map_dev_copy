@@ -43,12 +43,10 @@ function MapPage() {
   //   test props to popup
   let selectedTest = "Slected works and passes to comp";
   
-// functions to gather current locaiton
-// https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition 
 
 const getLocation = (event) => {
-    console.log(event)
-    console.log(event.lngLat)
+    console.log("event from getLocation funciton in MapPage",event)
+    console.log("event.lngLat from getLocation funciton in MapPage",event.lngLat)
     setCrdForNewMarker(event.lngLat)
 }
 
