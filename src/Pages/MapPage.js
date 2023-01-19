@@ -43,32 +43,13 @@ function MapPage() {
   //   test props to popup
   let selectedTest = "Slected works and passes to comp";
   
-// functions to gather current locaiton
-// https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition 
 
-const getLocation = () => {
-    const options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 60000
-      };
-      
-      function success(pos) {
-        const crd = pos.coords;
-      
-        console.log('Your current position is:');
-        console.log(`Latitude : ${crd.latitude}`);
-        console.log(`Longitude: ${crd.longitude}`);
-        console.log(`More or less ${crd.accuracy} meters.`);
-        setCrdForNewMarker(crd)
-      }
-      
-      function error(err) {
-        console.warn(`ERROR(${err.code}): ${err.message}`);
-      }
-      
-      navigator.geolocation.getCurrentPosition(success, error, options);
+const getLocation = (event) => {
+    console.log("event from getLocation funciton in MapPage",event)
+    console.log("event.lngLat from getLocation funciton in MapPage",event.lngLat)
+    setCrdForNewMarker(event.lngLat)
 }
+
 
   return (
     <div>
@@ -81,7 +62,7 @@ const getLocation = () => {
       onMove={(evt) => setViewState(evt.viewState)}
       onDblClick={(event)=> {
               event.preventDefault();
-              getLocation()
+              getLocation(event)
         }}
     > 
       {/* GeolocateControl imports button that will send us to current location*/}
@@ -106,7 +87,7 @@ const getLocation = () => {
             {locToMark.name}
           </button>
         </Marker>
-        {console.log("printing locToMark inside of marker map",locToMark)}
+        {/* {console.log("printing locToMark inside of marker map",locToMark)} */}
         </div>
       ))
       ): null}
