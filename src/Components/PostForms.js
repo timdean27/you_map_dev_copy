@@ -1,17 +1,46 @@
 import React, { useState, useEffect } from "react";
 
 const PostForms = ({
-  LocationsMarked,
+locationsMarked,
   setLocationsMarked,
   crdForNewMarker,
 }) => {
-  const handleChange = (e) => {
-    console.log("e.target.name", e.target.id);
-    console.log("e.target.value", e.target.value);
+  const [holdName, setHoldName] = useState()
+  const [holdLat, setHoldLat] = useState()
+  const [holdLng, setHoldLng] = useState()
+  const [locationsMarkedTest, setLocationsMarkedTest] = useState()
+
+    const handleChange = (e) => {
+        switch (e.target.id){
+            case "name":
+                console.log("Name from switch in post forms", e.target.value)
+                setHoldName(e.target.value)
+                break;
+            case "latitude":
+                console.log("latitude from switch in post forms", e.target.value)
+                setHoldLat(e.target.value)
+                break;
+            case "longitude":
+                console.log("longitude from switch in post forms", e.target.value)
+                setHoldLng(e.target.value)
+                break;
+            default:
+                console.log('default from switch in post forms');
+        } 
   };
+
+  
   const handleSubmit = () => {
-    setLocationsMarked({ ...LocationsMarked });
+    setLocationsMarkedTest([...locationsMarkedTest,{
+        name: holdName,
+        coordinates: [holdLng, holdLat] // [long , lat]
+      }]);
+
+      console.log(setLocationsMarkedTest)
   };
+
+
+
   useEffect(() => {
     console.log("crdForNewMarker printing from post forms", crdForNewMarker);
   }, [crdForNewMarker]);
@@ -34,6 +63,7 @@ const PostForms = ({
             id="latitude"
             type="text"
             placeholder={crdForNewMarker ? crdForNewMarker.lat : "Latitude"}
+            value={crdForNewMarker ? crdForNewMarker.lat : ""}
             onChange={handleChange}
           />
         </label>
@@ -43,6 +73,7 @@ const PostForms = ({
             id="longitude"
             type="text"
             placeholder={crdForNewMarker ? crdForNewMarker.lng : "Longitude"}
+            value={crdForNewMarker ? crdForNewMarker.lng : ""}
             onChange={handleChange}
           />
         </label>
