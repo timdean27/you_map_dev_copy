@@ -40,9 +40,6 @@ function MapPage() {
     }
   }, []);
 
-  //   test props to popup
-  let selectedTest = "Slected works and passes to comp";
-  
 
 const getLocation = (event) => {
     console.log("event from getLocation funciton in MapPage",event)
@@ -59,6 +56,8 @@ const getLocation = (event) => {
       ]);
 }
 
+useEffect(() => {
+    }, []);
 
   return (
     <div>
@@ -87,10 +86,12 @@ const getLocation = (event) => {
           longitude={markedLocation.coordinates[0]}
         >
           <button
-            onClick={(e) => {
+            onClick={e => {
               e.preventDefault();
-            setSelectedMarker(markedLocation);
-            console.log("markedLocation from button in Map Page", markedLocation);
+              const locationWeClick = markedLocation
+              setSelectedMarker(locationWeClick);
+            console.log("markedLocation from button in Map Page",locationWeClick)
+            console.log("selectedMarker from button in Map Page",selectedMarker);
             }}
           >
             {markedLocation.name}
@@ -104,19 +105,19 @@ const getLocation = (event) => {
 
       {selectedMarker ? (
         <Popup
+        longitude={selectedMarker.coordinates[0]}
         latitude={selectedMarker.coordinates[1]}
-            longitude={selectedMarker.coordinates[0]}
           onClose={() => {
             setSelectedMarker(null);
           }}
         >
           <PopUpInfo
-            selectedTest={selectedTest}
-           selectedMarker={selectedMarker}
+        //     selectedTest={selectedTest}
+        //    selectedMarker={selectedMarker}
           />
           Hello
         </Popup>
-      ) : null}
+      ) : console.log("nothing seleted",selectedMarker)}
     </ReactMapGL>
 </div>
   );
