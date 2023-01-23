@@ -7,7 +7,7 @@ import ReactMapGL, {
 } from "react-map-gl";
 
 import PopUpInfo from "../Components/PopUpInfo";
-import PostForms from "../Components/PostForms";
+
 
 function MapPage() {
   const [viewState, setViewState] = useState({
@@ -29,7 +29,7 @@ function MapPage() {
     name: "Denver",
     coordinates: [-105.33, 39.87],
   }],);
-  const [crdForNewMarker, setCrdForNewMarker] = useState(null);
+  
 
   // moves to current user location
   const geolocateControlRef = React.useCallback((ref) => {
@@ -47,7 +47,16 @@ function MapPage() {
 const getLocation = (event) => {
     console.log("event from getLocation funciton in MapPage",event)
     console.log("event.lngLat from getLocation funciton in MapPage",event.lngLat)
-    setCrdForNewMarker(event.lngLat)
+    const longitude = event.lngLat.lng;
+    const latitude = event.lngLat.lat
+
+    setLocationsMarked([
+        ...locationsMarked,
+        {
+          name: 'New Marker',
+          coordinates: [longitude,latitude],
+        },
+      ]);
 }
 
 
@@ -70,24 +79,24 @@ const getLocation = (event) => {
       {/* NavigationControl gives us zoom and move buttons on side of map */}
       <NavigationControl />
       {locationsMarked ?(
-      locationsMarked.map((locToMark, index) => (
+      locationsMarked.map((markedLocation, index) => (
         <div key={index}>
         <Marker
           key={index}
-          latitude={locToMark.coordinates[1]}
-          longitude={locToMark.coordinates[0]}
+          latitude={markedLocation.coordinates[1]}
+          longitude={markedLocation.coordinates[0]}
         >
           <button
             onClick={(e) => {
               e.preventDefault();
-            setSelectedMarker(locToMark);
-            console.log("locToMark from button in Map Page", locToMark);
+            setSelectedMarker(markedLocation);
+            console.log("markedLocation from button in Map Page", markedLocation);
             }}
           >
-            {locToMark.name}
+            {markedLocation.name}
           </button>
         </Marker>
-        {/* {console.log("printing locToMark inside of marker map",locToMark)} */}
+        {/* {console.log("printing markedLocation inside of marker map",markedLocation)} */}
         </div>
       ))
       ): null}
@@ -109,7 +118,6 @@ const getLocation = (event) => {
         </Popup>
       ) : null}
     </ReactMapGL>
-    <PostForms crdForNewMarker={crdForNewMarker} locationsMarked={locationsMarked} setLocationsMarked={setLocationsMarked}/>
 </div>
   );
 }
