@@ -55,9 +55,11 @@ const getLocation = (event) => {
         },
       ]);
 }
-
 useEffect(() => {
-    }, []);
+  
+  }, []);
+
+  console.log(selectedMarker)
 
   return (
     <div>
@@ -79,45 +81,35 @@ useEffect(() => {
       <NavigationControl />
       {locationsMarked ?(
       locationsMarked.map((markedLocation, index) => (
-        <div key={index}>
         <Marker
           key={index}
           latitude={markedLocation.coordinates[1]}
           longitude={markedLocation.coordinates[0]}
         >
           <button
-            onClick={e => {
-              e.preventDefault();
-              const locationWeClick = markedLocation
-              setSelectedMarker(locationWeClick);
-            console.log("markedLocation from button in Map Page",locationWeClick)
-            console.log("selectedMarker from button in Map Page",selectedMarker);
-            }}
+                 onClick={() => {
+                    console.log(markedLocation)
+                            setSelectedMarker(markedLocation);
+                        }}
           >
             {markedLocation.name}
           </button>
         </Marker>
-        {/* {console.log("printing markedLocation inside of marker map",markedLocation)} */}
-        </div>
       ))
       ): null}
 
-
       {selectedMarker ? (
-        <Popup
-        longitude={selectedMarker.coordinates[0]}
-        latitude={selectedMarker.coordinates[1]}
-          onClose={() => {
-            setSelectedMarker(null);
-          }}
-        >
-          <PopUpInfo
-        //     selectedTest={selectedTest}
-        //    selectedMarker={selectedMarker}
-          />
-          Hello
-        </Popup>
-      ) : console.log("nothing seleted",selectedMarker)}
+
+                <Popup
+                    latitude={selectedMarker.coordinates[1]}
+                    longitude={selectedMarker.coordinates[0]}
+                    // onClose={() => {
+                    // setSelectedMarker(null)}}
+                >
+                    <PopUpInfo/>
+                </Popup>
+
+            ) : null}
     </ReactMapGL>
 </div>
   );
