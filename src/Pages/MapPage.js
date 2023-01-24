@@ -99,7 +99,7 @@ useEffect(() => {
       ): null}
 
       {selectedMarker ? (
-
+                <div>
                 <Popup
                     latitude={selectedMarker.coordinates[1]}
                     longitude={selectedMarker.coordinates[0]}
@@ -108,7 +108,7 @@ useEffect(() => {
                 >
                     <PopUpInfo/>
                 </Popup>
-
+                </div>
             ) : null}
     </ReactMapGL>
 </div>
