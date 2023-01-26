@@ -1,11 +1,16 @@
-import React from 'react';
-import MapPage from './Pages/MapPage';
-import 'mapbox-gl/dist/mapbox-gl.css';
+import React from "react"
+
+import { FaBeer } from "react-icons/fa";
+import Home from "./Pages/Home";
+
+
+
 function App() {
   return (
     <div>
-      <MapPage />
+      <Home />
     </div>
+
   );
 }
 

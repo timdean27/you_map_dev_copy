@@ -72,7 +72,7 @@ function MapPage() {
   useEffect(() => {
   }, []);
   
-  console.log("selected marker",selectedMarker);
+  // console.log("selected marker",selectedMarker);
 
   return (
     <div>
@@ -132,7 +132,7 @@ function MapPage() {
               </div>
             </Popup>
             </div>
-        ) : console.log("failing at Popup")}
+        ) : null}
       </ReactMapGL>
     </div>
   );
