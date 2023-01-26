@@ -34,10 +34,10 @@ function MapPage() {
   ]);
 
 
-//   On move fucntionality sets current lat and long (print e to see full object)
+// On move fucntionality sets current lat and long (print e to see full object)
 // style and global are hard set in ReactMapGl comp
   const onMoveFunc = (e) => {
-    // console.log("event from move fucntion",e);
+//    console.log("event from move fucntion",e);
     setViewState(e.viewState);
     setCurrentLatLng([e.viewState.latitude , e.viewState.longitude])
   };
@@ -107,7 +107,7 @@ function MapPage() {
           : null}
 
         {selectedMarker ? (
-          <div>
+          
             <Popup
               latitude={selectedMarker.coordinates[1]}
               longitude={selectedMarker.coordinates[0]}
@@ -115,8 +115,9 @@ function MapPage() {
               // setSelectedMarker(null)}}
             >
               <PopUpInfo />
+              
             </Popup>
-          </div>
+          
         ) : null}
       </ReactMapGL>
     </div>
