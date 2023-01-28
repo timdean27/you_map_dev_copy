@@ -23,7 +23,16 @@ code {
   text-align: center;
 }
 
-.FirstIamge_POPup{
+
+/* ViewPopUpStart PAge */
+.Iamge_POPup{
   width: 150px;
   height: 150px;
+}
+
+.ImageContainer{
+  text-align: center;
+}
+.placeholder{
+  opacity: 0;
 }
