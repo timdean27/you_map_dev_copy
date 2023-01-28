@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup, NavigationControl } from "react-map-gl";
 
-import EditPopUpInfo from "../Components/EditPopUpInfo";
-import ViewPopUpStart from "../Components/ViewPopUpStart";
-
+import EditPopUpInfo from "../Components/PopUP/EditPopUpInfo";
+import ViewPopUpStart from "../Components/PopUP/ViewPopUpStart";
+import ChatInPopUp from "../Components/PopUP/ChatInPopUp";
 function MapPage() {
   const [editPopupInfo, setEditPopupInfo] = useState(false);
   const [selectedMarker, setSelectedMarker] = useState(null);
@@ -139,6 +139,7 @@ function MapPage() {
                   Edit
                 </button>
                 <ViewPopUpStart selectedMarker={selectedMarker} />
+                <ChatInPopUp/>
               </div>
             )}
           </Popup>

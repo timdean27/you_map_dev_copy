@@ -4,6 +4,8 @@ import { useDropzone } from "react-dropzone";
 
 const EditPopUpInfo = ({ selectedMarker , locationsMarked , setLocationsMarked, setEditPopupInfo}) => {
   const [title, setTitle] = useState("Title");
+  let locationWeWantIndex = locationsMarked.findIndex(locationWeWant => locationWeWant.coordinates=== selectedMarker.coordinates)
+  console.log("Index of the location we want in edit info page", locationWeWantIndex)
 
   const handleChange = (e) => {
     console.log(e.target.value);
@@ -33,10 +35,14 @@ const EditPopUpInfo = ({ selectedMarker , locationsMarked , setLocationsMarked, 
   }, []);
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
+
+  useEffect(() => {
+    
+  }, []);
+
+
   return (
 
-     
- 
         <div>
           Model is Open
           <form onSubmit={handleSubmit}>
