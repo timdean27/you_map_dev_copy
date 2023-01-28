@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-import ReactMapGL, {
-  Marker,
-  Popup,
-  GeolocateControl,
-  NavigationControl,
-} from "react-map-gl";
+import ReactMapGL, { Marker, Popup, NavigationControl } from "react-map-gl";
 
-import PopUpInfo from "../Components/PopUpInfo";
+import EditPopUpInfo from "../Components/EditPopUpInfo";
+import ViewPopUpStart from "../Components/ViewPopUpStart";
 
 function MapPage() {
+  const [editPopupInfo, setEditPopupInfo] = useState(false);
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [currentLatLng, setCurrentLatLng] = useState(["0.00000", "0.00000"]);
   const [viewState, setViewState] = useState({
@@ -21,25 +18,25 @@ function MapPage() {
     minZoom: 0,
     projection: "globe",
   });
-
   const [locationsMarked, setLocationsMarked] = useState([
     {
       name: "New York",
       coordinates: [-73.33, 40.87], // [long , lat]
+      image:"https://cdn.contexttravel.com/image/upload/c_fill,q_60,w_2600/v1549321174/production/city/hero_image_12_1549321174.jpg"
     },
     {
       name: "Denver",
       coordinates: [-105.33, 39.87],
+      image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6r9FJ03CZaE9cXY3Fs2IXMdKewUk3glFMTQ&usqp=CAU"
     },
   ]);
 
-
-// On move fucntionality sets current lat and long (print e to see full object)
-// style and global are hard set in ReactMapGl comp
+  // On move fucntionality sets current lat and long (print e to see full object)
+  // style and global are hard set in ReactMapGl comp
   const onMoveFunc = (e) => {
-//    console.log("event from move fucntion",e);
+    //    console.log("event from move fucntion",e);
     setViewState(e.viewState);
-    setCurrentLatLng([e.viewState.latitude , e.viewState.longitude])
+    setCurrentLatLng([e.viewState.latitude, e.viewState.longitude]);
   };
 
   const getLocation = (event) => {
@@ -60,19 +57,17 @@ function MapPage() {
     ]);
   };
 
-  
   const clickFuncSelectMarker = (markedLocation) => {
-    if(markedLocation != selectedMarker){
-    console.log("marked location in onClick button",markedLocation);
-    setSelectedMarker(markedLocation);
-    }
-    else(console.log(markedLocation))
-  }
+    if (markedLocation != selectedMarker) {
+      console.log("marked location in onClick button", markedLocation);
+      setSelectedMarker(markedLocation);
+    } else console.log(markedLocation);
+  };
 
-  useEffect(() => {
-  }, []);
-  
+  useEffect(() => {}, []);
+
   // console.log("selected marker",selectedMarker);
+  // function to Edit Popup
 
   return (
     <div>
@@ -93,9 +88,6 @@ function MapPage() {
           getLocation(event);
         }}
       >
-        {/* GeolocateControl imports button that will send us to current location*/}
-        {/* <GeolocateControl ref={geolocateControlRef}></GeolocateControl> */}
-        {/* NavigationControl gives us zoom and move buttons on side of map */}
         <NavigationControl />
         {locationsMarked
           ? locationsMarked.map((markedLocation, index) => (
@@ -104,34 +96,52 @@ function MapPage() {
                 latitude={markedLocation.coordinates[1]}
                 longitude={markedLocation.coordinates[0]}
               >
-                <button
-                  onClick={e =>{
+                <div
+                  className="marker"
+                  onClick={(e) => {
                     e.preventDefault();
                     clickFuncSelectMarker(markedLocation);
                   }}
                 >
                   {markedLocation.name}
-                </button>
+                </div>
               </Marker>
             ))
           : null}
 
         {selectedMarker ? (
-          <div>
-         {console.log("this should print when selectedMarker is true",selectedMarker, )}
-            <Popup
-              closeOnClick={false}
-              closeButton={true}
-              latitude={selectedMarker.coordinates[1]}
-              longitude={selectedMarker.coordinates[0]}
-              onClose={e => {
-              setSelectedMarker(null)}}
-            >
+          <Popup
+            closeOnClick={false}
+            closeButton={true}
+            latitude={selectedMarker.coordinates[1]}
+            longitude={selectedMarker.coordinates[0]}
+            onClose={(e) => {
+              setSelectedMarker(null);
+              setEditPopupInfo(false);
+            }}
+          >
+            {editPopupInfo ? (
               <div>
-              <PopUpInfo />
+                <EditPopUpInfo
+                  selectedMarker={selectedMarker}
+                  locationsMarked={locationsMarked}
+                  setLocationsMarked={setLocationsMarked}
+                  setEditPopupInfo={setEditPopupInfo}
+                />
               </div>
-            </Popup>
-            </div>
+            ) : (
+              <div>
+                <button
+                  onClick={(e) => {
+                    setEditPopupInfo(true);
+                  }}
+                >
+                  Edit
+                </button>
+                <ViewPopUpStart selectedMarker={selectedMarker} />
+              </div>
+            )}
+          </Popup>
         ) : null}
       </ReactMapGL>
     </div>

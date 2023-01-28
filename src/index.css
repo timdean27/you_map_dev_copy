@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.marker {
+  background: #F9DC5C;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+  color: #000;
+}
+
+.FirstIamge_POPup{
+  width: 150px;
+  height: 150px;
+}
