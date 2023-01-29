@@ -27,7 +27,7 @@ function MapPage() {
     {
       name: "Denver",
       coordinates: [-105.33, 39.87],
-      images:["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6r9FJ03CZaE9cXY3Fs2IXMdKewUk3glFMTQ&usqp=CAU"]
+      images:["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQexzIiOxb447izZqKuAndd_bSD8EX146wzTIx7K6uiiPPqsqkKvr4E0xUbj8KasgVF5AM&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAeYzcZ0kyg59IbU6uJnC0vBu_8UG1zvB-yaSsIbcVUJWNHaZKdPaWWUD5alv5lBtDgok&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu_VFA4Al87aQBYSClO7TT3IGZoKXN-FVI8g&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6r9FJ03CZaE9cXY3Fs2IXMdKewUk3glFMTQ&usqp=CAU"]
     },
   ]);
 
