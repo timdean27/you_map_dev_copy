@@ -22,12 +22,22 @@ function MapPage() {
     {
       name: "New York",
       coordinates: [-73.33, 40.87], // [long , lat]
-      images:["https://cdn.contexttravel.com/image/upload/c_fill,q_60,w_2600/v1549321174/production/city/hero_image_12_1549321174.jpg","https://img.grouponcdn.com/deal/NHjGV2FkqS3qKFu3wqWwP4M3xB6/NH-976x586/v1/c870x524.jpg","https://media.gettyimages.com/id/1269226133/photo/concept-of-new-york-city-statue-of-liberty-downtown.jpg?s=612x612&w=gi&k=20&c=j490kQvLK__AlFHjeip2eyt9X954Nda82kn1yIs3vkk=" ,"https://media.istockphoto.com/id/1340381886/photo/aerial-view-of-manhattan-at-sunset.jpg?b=1&s=170667a&w=0&k=20&c=uXyWuZuP-4maEheV1sc90cmwBGG4fn3C108_MgJ9Zro="]
+      images: [
+        "https://cdn.contexttravel.com/image/upload/c_fill,q_60,w_2600/v1549321174/production/city/hero_image_12_1549321174.jpg",
+        "https://img.grouponcdn.com/deal/NHjGV2FkqS3qKFu3wqWwP4M3xB6/NH-976x586/v1/c870x524.jpg",
+        "https://media.gettyimages.com/id/1269226133/photo/concept-of-new-york-city-statue-of-liberty-downtown.jpg?s=612x612&w=gi&k=20&c=j490kQvLK__AlFHjeip2eyt9X954Nda82kn1yIs3vkk=",
+        "https://media.istockphoto.com/id/1340381886/photo/aerial-view-of-manhattan-at-sunset.jpg?b=1&s=170667a&w=0&k=20&c=uXyWuZuP-4maEheV1sc90cmwBGG4fn3C108_MgJ9Zro=",
+      ],
     },
     {
       name: "Denver",
       coordinates: [-105.33, 39.87],
-      images:["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQexzIiOxb447izZqKuAndd_bSD8EX146wzTIx7K6uiiPPqsqkKvr4E0xUbj8KasgVF5AM&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAeYzcZ0kyg59IbU6uJnC0vBu_8UG1zvB-yaSsIbcVUJWNHaZKdPaWWUD5alv5lBtDgok&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu_VFA4Al87aQBYSClO7TT3IGZoKXN-FVI8g&usqp=CAU","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6r9FJ03CZaE9cXY3Fs2IXMdKewUk3glFMTQ&usqp=CAU"]
+      images: [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQexzIiOxb447izZqKuAndd_bSD8EX146wzTIx7K6uiiPPqsqkKvr4E0xUbj8KasgVF5AM&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAeYzcZ0kyg59IbU6uJnC0vBu_8UG1zvB-yaSsIbcVUJWNHaZKdPaWWUD5alv5lBtDgok&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu_VFA4Al87aQBYSClO7TT3IGZoKXN-FVI8g&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6r9FJ03CZaE9cXY3Fs2IXMdKewUk3glFMTQ&usqp=CAU",
+      ],
     },
   ]);
 
@@ -139,7 +149,7 @@ function MapPage() {
                   Edit
                 </button>
                 <ViewPopUpStart selectedMarker={selectedMarker} />
-                <ChatInPopUp/>
+                <ChatInPopUp />
               </div>
             )}
           </Popup>
