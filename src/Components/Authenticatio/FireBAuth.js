@@ -5,16 +5,24 @@ const FireBAuth = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const signIn = async () => {
-        await createUserWithEmailAndPassword(auth, email, password)
+    const signIn = async (e) => {
+        e.preventDefault()
+        await createUserWithEmailAndPassword(auth, email, password).then(
+            setEmail(""),
+            setPassword("")
+            
+        )
+        
     }
 
 
   return (
     <div>
-        <input placeholder="Email" onChange={(event) => setEmail(event.target.value)}></input>
-        <input placeholder="Password" type="password" onChange={(event) => setPassword(event.target.value)}></input>
+
+        <input placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)}></input>
+        <input placeholder="Password" value={password} type="password" onChange={(event) => setPassword(event.target.value)}></input>
         <button onClick={signIn}>Sign in</button>
+
     </div>
   )
 }
