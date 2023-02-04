@@ -10,7 +10,7 @@ function Header() {
     <div className='header-container'>
         <div className='header-left'>
             <span className='logo'>
-            <img src="assets/BTlogo.png" alt='logo picture'className='profile-img'/>
+            <img src="assets/BTlogo.png" alt='logo'className='profile-img'/>
             Been There
             </span>
         </div>
@@ -26,10 +26,11 @@ function Header() {
                 <span className='person-icon-badge'>1</span>
             </div>
             <div className='login'>
+                **New Account**
                 **Login**
                 <CiLogin />
             </div>
-            <img src="assets/profile1.jpg" alt=''className='profile-img'/>
+            <img src="assets/profile2.jpg" alt='profile'className='profile-img'/>
           </div>
  
     </div>

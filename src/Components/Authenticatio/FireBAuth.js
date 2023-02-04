@@ -18,7 +18,7 @@ const FireBAuth = () => {
 
   return (
     <div>
-
+  <h1>firebaseAuth</h1>
         <input placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)}></input>
         <input placeholder="Password" value={password} type="password" onChange={(event) => setPassword(event.target.value)}></input>
         <button onClick={signIn}>Sign in</button>
