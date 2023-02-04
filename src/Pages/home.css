@@ -1,0 +1,9 @@
+.homepage-container{
+    display: flex;
+}
+
+.mappage{
+    flex:10;
+    margin-left: 10px;
+}
+
