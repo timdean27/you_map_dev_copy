@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from "../Components/Header/Header"
 import MapPage from "./MapPage"
-import FireBAuth from '../Components/Authenticatio/FireBAuth'
+import FireBAuth from '../Components/Authentication/FireBAuth'
 import Rightside from '../Components/rightside/Rightside'
 import Sidebar from '../Components/sidebar/Sidebar'
 
