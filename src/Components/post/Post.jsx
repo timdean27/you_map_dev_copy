@@ -10,7 +10,7 @@ function Post() {
                 <div className="post-topleft">
                     <img className='post-profileimg' src="assets/profile2.jpg" alt="" />
                     <span className="post-username">bob bob</span>
-                    <sapn className="post-userdate">5 min ago</sapn>
+                    <span className="post-userdate">5 min ago</span>
                 </div>
                 <div className="post-topright">
                     <AiOutlineMore />
