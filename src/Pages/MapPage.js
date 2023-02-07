@@ -98,7 +98,7 @@ function MapPage() {
           getLocation(event);
         }}
       >
-        <NavigationControl />
+        {/* <NavigationControl /> */}
         {locationsMarked
           ? locationsMarked.map((markedLocation, index) => (
               <Marker
@@ -113,7 +113,9 @@ function MapPage() {
                     clickFuncSelectMarker(markedLocation);
                   }}
                 >
-                  {markedLocation.name}
+                  {markedLocation.images ?
+                  <img src={markedLocation.images[0]} alt="Iamge 1 of iamges" title={markedLocation.name}/>
+                  : <button>Create</button>}
                 </div>
               </Marker>
             ))
