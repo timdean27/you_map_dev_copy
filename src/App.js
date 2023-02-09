@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from "react";
-
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { FaBeer } from "react-icons/fa";
 import Home from "./Pages/Home";
-import FireBAuth from "./Components/Authentication/FireBAuth";
-
+import FireBaseLogin from "./Components/Authentication/FireBaseLogin";
+import FireBaseCreateUser from "./Components/Authentication/FireBaseCreateUser";
 
 function App() {
- const [logedIn , setLoggedIn] = useState(false);
 
- useEffect(() => {}, []);
+  const currentUser =  false
+
+  const RequireAuth = ({childern}) =>{
+    return currentUser ? (childern) : <Navigate to="/FireBaseLogin" />
+  }
 
   return (
-    <div>
-    {logedIn?
-      <Home />
-      :
-      <FireBAuth setLoggedIn={setLoggedIn} logedIn={logedIn}/>
-    }
-    </div>
+    <BrowserRouter><Routes>
+      <Route path="FireBaseLogin" element={<FireBaseLogin/>} />
+      <Route
+              index
+              element={
+                <RequireAuth>
+                  <Home />
+                </RequireAuth>
+              }
+            />
 
+    </Routes></BrowserRouter>
+ 
   );
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from "../Components/Header/Header"
 import MapPage from "./MapPage"
-import FireBAuth from '../Components/Authentication/FireBAuth'
+import FireBaseLogin from '../Components/Authentication/FireBaseLogin'
 import Rightside from '../Components/rightside/Rightside'
 import Sidebar from '../Components/sidebar/Sidebar'
 
@@ -14,7 +14,7 @@ const Home = () => {
       <Header />
       <div className='homepage-container'>
       <Sidebar />
-      <FireBAuth />
+      <FireBaseLogin />
       <MapPage className='map-page'/>
       <Rightside />
       </div>
