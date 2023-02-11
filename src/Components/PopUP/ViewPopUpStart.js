@@ -16,7 +16,7 @@ const ViewPopUpStart = ({ selectedMarker }) => {
   return (
     <div>
       ViewPopUpStart
-      <h3>{selectedMarker.name}</h3>
+      <h4>{selectedMarker.name}</h4>
       {selectedMarker.images ? (
         <div className="ImageContainer">
           <img

@@ -3,7 +3,7 @@ import ReactMapGL, { Marker, Popup, NavigationControl } from "react-map-gl";
 
 import EditPopUpInfo from "../Components/PopUP/EditPopUpInfo";
 import ViewPopUpStart from "../Components/PopUP/ViewPopUpStart";
-import ChatInPopUp from "../Components/PopUP/ChatInPopUp";
+import ChatInPopUp from "../Components/PopUP/NewChat";
 function MapPage() {
   const [editPopupInfo, setEditPopupInfo] = useState(false);
   const [selectedMarker, setSelectedMarker] = useState(null);
@@ -20,6 +20,7 @@ function MapPage() {
   });
   const [locationsMarked, setLocationsMarked] = useState([
     {
+      markerID: 0,
       name: "New York",
       coordinates: [-73.33, 40.87], // [long , lat]
       images: [
@@ -30,6 +31,7 @@ function MapPage() {
       ],
     },
     {
+      markerID: 1,
       name: "Denver",
       coordinates: [-105.33, 39.87],
       images: [
@@ -49,10 +51,10 @@ function MapPage() {
     setCurrentLatLng([e.viewState.latitude, e.viewState.longitude]);
   };
 
-  const getLocation = (event) => {
-    console.log("event from getLocation funciton in MapPage", event);
+  const CeartMakerFunc = (event) => {
+    console.log("event from CeartMakerFunc funciton in MapPage", event);
     console.log(
-      "event.lngLat from getLocation funciton in MapPage",
+      "event.lngLat from CeartMakerFunc funciton in MapPage",
       event.lngLat
     );
     const longitude = event.lngLat.lng;
@@ -62,6 +64,7 @@ function MapPage() {
       ...locationsMarked,
       {
         name: "New Marker",
+        markerID: locationsMarked.length,
         coordinates: [longitude, latitude],
       },
     ]);
@@ -95,7 +98,7 @@ function MapPage() {
         onMove={onMoveFunc}
         onDblClick={(event) => {
           event.preventDefault();
-          getLocation(event);
+          CeartMakerFunc(event);
         }}
       >
         {/* <NavigationControl /> */}
@@ -151,7 +154,7 @@ function MapPage() {
                   Edit
                 </button>
                 <ViewPopUpStart selectedMarker={selectedMarker} />
-                <ChatInPopUp />
+                <ChatInPopUp selectedMarker={selectedMarker}/>
               </div>
             )}
           </Popup>
