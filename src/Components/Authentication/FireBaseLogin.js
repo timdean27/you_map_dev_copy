@@ -60,7 +60,7 @@ const FireBaseLogin = ({currentUser}) => {
 
   return (
     <div>
-    {currentUser ?
+    {!currentUser ?
     <div className="login">
       <form onSubmit={handleLogin}>
         <input
