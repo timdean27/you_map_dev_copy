@@ -4,7 +4,7 @@ npm install react-router-dom
 npm install --save react-map-gl mapbox-gl
 
 npm install react-dropzone
-To drag and dorp iamge files
+To drag and dorp image files
 
 
 npm install firebase --save
