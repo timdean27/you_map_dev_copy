@@ -8,13 +8,13 @@ import Sidebar from '../Components/sidebar/Sidebar'
 import './home.css'
 
 
-const Home = () => {
+const Home = ({currentUser}) => {
   return (
     <div>
       <Header />
       <div className='homepage-container'>
       <Sidebar />
-      <FireBaseLogin />
+      <FireBaseLogin currentUser={currentUser}/>
       <MapPage className='map-page'/>
       <Rightside />
       </div>

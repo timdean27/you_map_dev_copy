@@ -57,7 +57,7 @@ const FireBaseLogin = ({currentUser}) => {
     }
   };
 
-
+console.log("currentuser in login page" , currentUser)
   return (
     <div>
     {!currentUser ?
@@ -78,7 +78,7 @@ const FireBaseLogin = ({currentUser}) => {
       </form>
       <button onClick={signInWithGoogle}> Sign In With Google</button>
     </div>
-    : <button onClick={logout }>Log Out</button>}
+    : <button onClick={logout}>Log Out</button>}
     </div>
   );
 };
