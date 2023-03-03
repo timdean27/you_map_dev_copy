@@ -93,6 +93,7 @@ function MapPage() {
         style={{ width: 800, height: 600 }}
         mapStyle="mapbox://styles/mapbox/satellite-streets-v12"
         projection="globe"
+        range = {[ -100, 100]}
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         {...viewState}
         onMove={onMoveFunc}
