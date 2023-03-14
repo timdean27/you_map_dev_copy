@@ -27,7 +27,7 @@ code {
 
 /* ViewPopUpStart Page */
 .Iamge_POPup{
-  width: 150px;
+  width: 200px;
   height: 150px;
 }
 
@@ -36,4 +36,9 @@ code {
 }
 .placeholder{
   opacity: 0;
+}
+
+/* ChatInPopUp */
+.ChatBoxInPopup{
+background-color: aqua;
 }
