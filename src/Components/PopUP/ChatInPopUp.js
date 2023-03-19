@@ -3,16 +3,17 @@ import React from "react";
 const ChatInPopUp = ({ selectedMarker }) => {
   console.log(selectedMarker)
   const mapChatFunc = () => {
-    selectedMarker.chats.map(chat => {
-      console.log(chat)
-      return <div>{chat}</div>;
-    });
+    return <div>{
+    selectedMarker.chats.map((chat,index)=> {
+      return <li key={index}>{chat}</li>
+    })}
+    </div>
   };
 
   return (
     <div className="ChatBoxnPopup">
       ChatInPopUp for {selectedMarker.markerID}
-      <div>{mapChatFunc}</div>
+      <div>{selectedMarker.chats ? mapChatFunc() : <div>chat</div>}</div>
     </div>
   );
 };
